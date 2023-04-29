@@ -29,6 +29,30 @@ namespace FillSpheres
             Console.WriteLine($"Blue sphere thrown {blueSphere.GetTimesThrown()} times.");
         }
 
+        // fura uma esfera random
+        Random rnd = new Random();
+        int sphereToPop = rnd.Next(1, 4);
+
+        //caso random selecione 1 fura red
+        if (sphereToPop == 1)
+        {
+            redSphere.Pop();
+            Console.WriteLine($"Red sphere has been popped.");
+        }
+
+        //caso random selecione 2 fura green
+        else if (sphereToPop == 2)
+        {
+            greenSphere.Pop();
+            Console.WriteLine($"Green sphere has been popped.");
+        }
+
+        //caso random selecione 3 fura blue
+        else if (sphereToPop == 3)
+        {
+            blueSphere.Pop();
+            Console.WriteLine($"Blue sphere has been popped.");
+        }
     }
 
     Console.ReadLine();
