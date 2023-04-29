@@ -84,5 +84,13 @@ namespace FillSpheres
         private Color color;
         private double radius;
         private int timesThrown;
+    
+    //construtor para raio e cor de uma esfera
+        public Sphere(Color color, double radius)
+        {
+            this.color = color;
+            this.radius = radius;
+            this.timesThrown = 0;
+        }
     }
 }
