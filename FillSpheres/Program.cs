@@ -10,15 +10,18 @@ namespace FillSpheres
         }
     }
 
-    class Color
+    /// <summary>
+    /// class Color para definir 4 propriedades de cor
+    /// </summary>
+    public class Color
     {
-        byte red
-        byte green
-        byte blue
-        byte alpha
-        
-        //colorize 4 paramenters
-        public byte Color (byte red, byte green, byte blue, byte alpha)
+        private int red;
+        private int green;
+        private int blue;
+        private int alpha;
+
+        //construtor de Color com as 4 propriedades por definir
+        public Color(int red, int green, int blue, int alpha)
         {
             this.red = red;
             this.green = green;
@@ -26,22 +29,13 @@ namespace FillSpheres
             this.alpha = alpha;
         }
 
-        //colorize 3 parameters
-        public byte Color (byte red, byte green, byte blue, byte alpha)
+        //construtor de Color com 3 propriedades por definir e alpha definida
+        public Color(int red, int green, int blue)
         {
-            byte alpha = 255;
             this.red = red;
             this.green = green;
             this.blue = blue;
+            this.alpha = 255;
         }
-    }
-
-    class Sphere
-    {
-       int color;
-       int radius;
-       int thrown;
-
-    }
 
 }
