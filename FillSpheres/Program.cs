@@ -92,5 +92,33 @@ namespace FillSpheres
             this.radius = radius;
             this.timesThrown = 0;
         }
+        
+        /// <summary>
+        /// metodo Pop que coloca o raio da esfera a 0
+        /// </summary>
+        public void Pop()
+        {
+            this.radius = 0;
+        }
+
+        /// <summary>
+        /// metodo Throw que incrementa o nº de vezes que a esfera foi atirada se não tiver furada
+        /// </summary>
+        public void Throw()
+        {
+            if (this.radius > 0)
+            {
+                this.timesThrown++;
+            }
+        }
+
+        /// <summary>
+        /// metodo GetTimesThrown que retorna o número de vezes que a esfera foi atirada
+        /// </summary>
+        /// <returns></returns>
+        public int GetTimesThrown()
+        {
+            return this.timesThrown;
+        }
     }
 }
