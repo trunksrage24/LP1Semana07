@@ -75,4 +75,14 @@ namespace FillSpheres
             return (red + green + blue) / 3;
         }
     }
+
+    /// <summary>
+    /// class Sphere para definir cor e raio de uma esfera, e para contar nº de vezes atirada
+    /// </summary>
+    public class Sphere
+    {
+        private Color color;
+        private double radius;
+        private int timesThrown;
+    }
 }
