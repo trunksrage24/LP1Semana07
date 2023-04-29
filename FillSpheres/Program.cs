@@ -2,12 +2,38 @@
 
 namespace FillSpheres
 {
+    /// <summary>
+    /// class Program para criar esferas usando dimensao e cor, e rebentar esferas
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
+{
+        // cria esfera red
+        Sphere redSphere = new Sphere(new Color(255, 0, 0), 5.0);
+        // cria esfera green
+        Sphere greenSphere = new Sphere(new Color(0, 255, 0), 4.0);
+        // cria esfera blue
+        Sphere blueSphere = new Sphere(new Color(0, 0, 255), 3.0);
+
+        // atirar esferas
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine("Hello, World!");
+            redSphere.Throw();
+            Console.WriteLine($"Red sphere thrown {redSphere.GetTimesThrown()} times.");
+
+            greenSphere.Throw();
+            Console.WriteLine($"Green sphere thrown {greenSphere.GetTimesThrown()} times.");
+
+            blueSphere.Throw();
+            Console.WriteLine($"Blue sphere thrown {blueSphere.GetTimesThrown()} times.");
         }
+
+    }
+
+    Console.ReadLine();
+}
+
     }
 
     /// <summary>
