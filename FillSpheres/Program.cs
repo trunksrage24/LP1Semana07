@@ -38,4 +38,41 @@ namespace FillSpheres
             this.alpha = 255;
         }
 
+        //getter e setter para red
+        public int Red
+        {
+            get { return red; }
+            set { red = value; }
+        }
+
+        //getter e setter para green
+        public int Green
+        {
+            get { return green; }
+            set { green = value; }
+        }
+
+        //getter e setter para blue
+        public int Blue
+        {
+            get { return blue; }
+            set { blue = value; }
+        }
+
+        //getter e setter para alpha
+        public int Alpha
+        {
+            get { return alpha; }
+            set { alpha = value; }
+        }
+
+        /// <summary>
+        /// metodo GetGrey
+        /// </summary>
+        /// <returns>faz a media entre red, green e blue somando os 3 e dividindo o resultado por 3</returns>
+        public int GetGrey()
+        {
+            return (red + green + blue) / 3;
+        }
+    }
 }
