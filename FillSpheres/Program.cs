@@ -8,56 +8,77 @@ namespace FillSpheres
     class Program
     {
         static void Main(string[] args)
-{
-        // cria esfera red
-        Sphere redSphere = new Sphere(new Color(255, 0, 0), 5.0);
-        // cria esfera green
-        Sphere greenSphere = new Sphere(new Color(0, 255, 0), 4.0);
-        // cria esfera blue
-        Sphere blueSphere = new Sphere(new Color(0, 0, 255), 3.0);
-
-        // atirar esferas
-        for (int i = 0; i < 5; i++)
         {
-            redSphere.Throw();
-            Console.WriteLine($"Red sphere thrown {redSphere.GetTimesThrown()} times.");
+            // cria esfera red
+            Sphere redSphere = new Sphere(new Color(255, 0, 0), 5.0);
+            // cria esfera green
+            Sphere greenSphere = new Sphere(new Color(0, 255, 0), 4.0);
+            // cria esfera blue
+            Sphere blueSphere = new Sphere(new Color(0, 0, 255), 3.0);
 
-            greenSphere.Throw();
-            Console.WriteLine($"Green sphere thrown {greenSphere.GetTimesThrown()} times.");
+            // fura uma esfera random
+            Random rnd = new Random();
+            int sphereToPop = rnd.Next(1, 4);
 
-            blueSphere.Throw();
-            Console.WriteLine($"Blue sphere thrown {blueSphere.GetTimesThrown()} times.");
-        }
+            //caso random selecione 1 fura red
+            if (sphereToPop == 1)
+            {
+                redSphere.Pop();
+                Console.WriteLine($"Red sphere has been popped.\n");
+            }
 
-        // fura uma esfera random
-        Random rnd = new Random();
-        int sphereToPop = rnd.Next(1, 4);
+            //caso random selecione 2 fura green
+            else if (sphereToPop == 2)
+            {
+                greenSphere.Pop();
+                Console.WriteLine($"Green sphere has been popped.\n");
 
-        //caso random selecione 1 fura red
-        if (sphereToPop == 1)
-        {
-            redSphere.Pop();
-            Console.WriteLine($"Red sphere has been popped.");
-        }
+            }
 
-        //caso random selecione 2 fura green
-        else if (sphereToPop == 2)
-        {
-            greenSphere.Pop();
-            Console.WriteLine($"Green sphere has been popped.");
-        }
+            //caso random selecione 3 fura blue
+            else if (sphereToPop == 3)
+            {
+                blueSphere.Pop();
+                Console.WriteLine($"Blue sphere has been popped.\n");
+            }
 
-        //caso random selecione 3 fura blue
-        else if (sphereToPop == 3)
-        {
-            blueSphere.Pop();
-            Console.WriteLine($"Blue sphere has been popped.");
-        }
+            // atirar esferas
+            for (int i = 0; i < 5; i++)
+            {
+                //verifica se red rebentou
+                if (redSphere.GetRadius() > 0)
+                {
+                    redSphere.Throw();
+                    Console.WriteLine($"red sphere thrown {redSphere.GetTimesThrown()} times.\n");
+                }
+                else
+                {
+                    Console.WriteLine("red sphere is popped... it cant be thrown.\n");
+                }
+
+                //verifica se green rebentou
+                if (greenSphere.GetRadius() > 0)
+                {
+                    greenSphere.Throw();
+                    Console.WriteLine($"green sphere thrown {greenSphere.GetTimesThrown()} times.\n");
+                }
+                else
+                {
+                    Console.WriteLine("green sphere is popped... it cant be thrown.\n");
+                }
+                
+                //verifica se blue rebentou
+                if (blueSphere.GetRadius() > 0)
+                {
+                    blueSphere.Throw();
+                    Console.WriteLine($"blue sphere thrown {blueSphere.GetTimesThrown()} times.\n");
+                }
+                else
+                {
+                    Console.WriteLine("blue sphere is popped... it cant be thrown.\n");
+                }
+            }
     }
-
-    Console.ReadLine();
-}
-
     }
 
     /// <summary>
@@ -135,7 +156,7 @@ namespace FillSpheres
         private double radius;
         private int timesThrown;
     
-    //construtor para raio e cor de uma esfera
+        //construtor para raio e cor de uma esfera
         public Sphere(Color color, double radius)
         {
             this.color = color;
@@ -169,6 +190,15 @@ namespace FillSpheres
         public int GetTimesThrown()
         {
             return this.timesThrown;
+        }
+
+        /// <summary>
+        /// metodo GetRadius que retorna o raio da esfera
+        /// </summary>
+        /// <returns></returns>
+        public double GetRadius()
+        {
+            return this.radius;
         }
     }
 }
